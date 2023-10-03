@@ -24,9 +24,10 @@ function moyenne($tab){
     $result = 0;
         for($i = 0; $i<$n ; $i++){
             $moyenne = $tab[$i] + $moyenne;
-            $moyenne = $moyenne /$n ;
-            return $moyenne;
+
         }
+    $moyenne = $moyenne /$n ;
+    return $moyenne;
 }
 
 echo 'La mediane est de '. mediane($salaires) . '  ';
