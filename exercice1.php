@@ -1,7 +1,7 @@
  <?php
-function triangle($nbLignes) {
+function etoile($nb) {
     // Boucle pour les lignes
-    for ($i = 1; $i <= $nbLignes; $i++) {
+    for ($i = 1; $i <= $nb; $i++) {
         // Boucle pour les colonnes
         for ($j = 1; $j <= $i; $j++) {
             echo "*";
@@ -9,6 +9,6 @@ function triangle($nbLignes) {
         echo "\n";
     }
 }
-echo triangle(10);
+echo etoile(10);
 
 ?>
