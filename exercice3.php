@@ -9,6 +9,7 @@ function factorielle($n) {
            $resultat = $resultat * $i;
         }
         return $resultat;
+
     }
 }
 
