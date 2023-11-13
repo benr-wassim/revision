@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercice 4.2</title>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <script>
+      var tab = [];
+      var i = 0;
+
+      while (true) {
+        tab[i] = prompt("Saisir un nombre");
+        tab[i] = parseInt(tab[i]);
+        if (tab[i] > 0) {
+          i++;
+        } else {
+          alert("votre entier est inferieur à 0");
+          break;
+        }
+      }
+
+      fetch("http://localhost/revision/data.json")
+        .then((response) => response.json())
+        .then((tab) => {
+          console.log(tab);
+        })
+        .catch((error) => {
+          // Gérer les erreurs
+          console.error("Erreur lors de la requête fetch :", error);
+        });
+      for (let i = 0; i < length(tab); i++) {
+        var myDiv = document.getElementById("myDiv");
+        var str = `${tab[i]}`; // essayer d'afficher le tableau json sur la page htmml
+        myDiv.innerHTML = str;
+      }
+    </script>
+  </body>
+</html>
