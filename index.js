@@ -1,37 +1,30 @@
 var tab = [];
 var i = 0;
 
-while (true) {
+while (i >= 0) {
   tab[i] = prompt("Saisir un nombre");
   tab[i] = parseInt(tab[i]);
   if (tab[i] > 0) {
     i++;
   } else {
-    alert("votre entier est inferieur à 0");
+    alert("Votre entier est inférieur à 0");
     break;
   }
 }
 
-fetch("http://127.0.0.1:5500", {
-    method: 'POST',
-    headers: {
-        'Content-Type':'application/json',
-    
-    },
-    body: JSON.stringify({ numbers: tab}),
-})
+// Convertir le tableau en une chaîne JSON
+var jsonString = JSON.stringify(tab);
+var encodedJsonString = encodeURIComponent(jsonString);
 
-  .then(response => {
-      return response.json();
-  })
-  .then(tab => {
-      var myDiv = document.getElementById("myDiv");
-      var virgule = tab.join();
-      myDiv.innerHTML += `${virgule}`;
-    console.log(tab);
+// Envoi du tableau au serveur avec la méthode GET
+fetch("index.php?tab=" + encodedJsonString)
+  .then(response => response.json())
+  .then(sortedTab => {
+    var myDiv = document.getElementById("myDiv");
+    var virgule = sortedTab.join();
+    myDiv.innerHTML = `Tableau trié : ${virgule}`;
+    console.log(sortedTab);
   })
   .catch((error) => {
-    // Gérer les erreurs
     console.error("Erreur lors de la requête fetch :", error);
   });
-

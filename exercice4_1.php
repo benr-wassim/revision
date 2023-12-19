@@ -15,5 +15,4 @@ function tri_selection($tab){
         }
     }
 }
-
 ?>
